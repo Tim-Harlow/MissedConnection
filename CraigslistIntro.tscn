@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Title and TExts/craigslist.png" type="Texture" id=1]
+[ext_resource path="res://CraigslistIntro.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/MissedConection Intro.ogg" type="AudioStream" id=3]
+
+[node name=" Craigslist" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 1030.0
+margin_bottom = 639.0
+rect_scale = Vector2( 1.23768, 1.51748 )
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

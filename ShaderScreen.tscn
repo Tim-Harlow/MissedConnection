@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CRTSHader/crt_material.tres" type="Material" id=1]
+
+[node name="ShaderScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource( 1 )
+use_parent_material = true
+margin_right = 1280.0
+margin_bottom = 951.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

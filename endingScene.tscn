@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Title and TExts/fireantEnding.png" type="Texture" id=1]
+[ext_resource path="res://Title and TExts/znricFont/zrnic rg.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://endingScene.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/squirrel song.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 84
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "scrolltext"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 19.8, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 85.9292, 866.363 ), Vector2( 41.7397, -629.571 ), Vector2( 85.9292, 866.363 ) ]
+}
+
+[node name="Ending" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 1275.0
+margin_bottom = 957.0
+texture_normal = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton"]
+margin_left = 85.9292
+margin_top = 866.363
+margin_right = 1331.93
+margin_bottom = 2260.36
+custom_fonts/normal_font = SubResource( 1 )
+text = "I'm so happy you came!  
+
+Ever since I outgrew ant society
+it's been hard to make new connections.
+
+I was beginning to think 
+that I would never find 
+someone who would accept me.
+
+I understand life is seldom easy or
+simple but I can't wait to take the next  steps with a new friend!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton/RichTextLabel"]
+autoplay = "scrolltext"
+anims/scrolltext = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 1.01
+autoplay = true
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
